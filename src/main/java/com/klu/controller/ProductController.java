@@ -74,9 +74,31 @@ public class ProductController {
         return "Product deleted successfully";
     }
 
+    // add product
+    @PostMapping("/add")
+    public Product addProduct(@RequestBody Product product) {
+        return repo.save(product);
+    }
+
+    // get all products
+    @GetMapping("/all")
+    public List<Product> getAllProducts() {
+        return repo.findAll();
+    }
+
     // JPQL sorting
     @GetMapping("/sorted")
     public List<Product> sorted() {
         return repo.sortByPrice();
+    }
+}
+
+// Separate controller for root path to avoid 404s
+@RestController
+@RequestMapping("/")
+class RootController {
+    @GetMapping
+    public String welcome() {
+        return "Welcome to the Product Search API! Use /products endpoints.";
     }
 }

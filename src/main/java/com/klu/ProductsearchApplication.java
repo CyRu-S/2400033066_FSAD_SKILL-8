@@ -11,3 +11,15 @@ public class ProductsearchApplication {
 	}
 
 }
+
+/*
+{
+    "name": "Smartphone",
+    "category": "Electronics",
+    "price": 699.99
+}
+http://localhost:9090/products/add
+http://localhost:9090/products/all
+http://localhost:9090/products/category/Electronics
+*/
+
